@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "KMU Lecture Auto End",
+  "version": "0.3.0",
+  "description": "계명대 LMS 강의 영상이 끝나면 '학습종료'를 자동으로 눌러 수강 시간이 계속 쌓이지 않게 합니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ctl.kmu.ac.kr/Lesson.do*",
+        "https://kcms.kmu.ac.kr/em/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kmu-lecture-auto-end@jinseung0327",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}
